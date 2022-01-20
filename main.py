@@ -65,7 +65,7 @@ async def repo(_, message: Message):
 async def ping(_, message: Message):
     await message.reply_text(f"🤖 **Pong!**\n`{await pytgcalls.ping} ms`")
 
-
+"""
 @client.on_message(
     filters.command("start", config.PREFIXES) & ~filters.bot & ~filters.edited
 )
@@ -73,10 +73,10 @@ async def ping(_, message: Message):
 @handle_error
 async def start(_, message: Message, lang):
     await message.reply_text(lang["startText"] % message.from_user.mention)
-
+"""
 
 @client.on_message(
-    filters.command("help", config.PREFIXES) & ~filters.private & ~filters.edited
+    filters.command("mhelp", config.PREFIXES) & ~filters.private & ~filters.edited
 )
 @language
 @handle_error
@@ -174,7 +174,7 @@ async def live_stream(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["skip", "next"], config.PREFIXES)
+    filters.command(["sp", "skip"], config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -286,7 +286,7 @@ async def resume_vc(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["stop", "leave"], config.PREFIXES)
+    filters.command(["end"], config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -308,7 +308,7 @@ async def leave_vc(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["list", "queue"], config.PREFIXES)
+    filters.command(["qs", "queue"], config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -345,7 +345,7 @@ async def shuffle_list(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["loop", "repeat"], config.PREFIXES)
+    filters.command(["loop"], config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -366,7 +366,7 @@ async def loop_stream(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["mode", "switch"], config.PREFIXES)
+    filters.command(["switch"], config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -387,7 +387,7 @@ async def switch_mode(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["admins", "adminsonly"], config.PREFIXES)
+    filters.command(["private"], config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -406,7 +406,7 @@ async def admins_only(_, message: Message, lang):
         k = await message.reply_text(lang["adminsOnly"] % "Enabled")
     await delete_messages([message, k])
 
-
+"""
 @client.on_message(
     filters.command(["lang", "language"], config.PREFIXES)
     & ~filters.private
@@ -433,7 +433,7 @@ async def set_lang(_, message: Message, lang):
         else:
             k = await message.reply_text(lang["notFound"])
         await delete_messages([message, k])
-
+"""
 
 @client.on_message(
     filters.command(["ep", "export"], config.PREFIXES)
@@ -572,7 +572,7 @@ async def import_playlist(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["update", "restart"], config.PREFIXES)
+    filters.command(["reload"], config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
