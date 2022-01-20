@@ -35,9 +35,7 @@ from core import (
 
 
 REPO = """
-🤖 **Music Player**
-- Repo: [GitHub](https://github.com/AsmSafone/MusicPlayer)
-- License: AGPL-3.0-or-later
+Can't Tell You
 """
 
 if config.BOT_TOKEN:
@@ -51,14 +49,14 @@ if config.BOT_TOKEN:
 else:
     client = app
 
-
+"""
 @client.on_message(
     filters.command("repo", config.PREFIXES) & ~filters.bot & ~filters.edited
 )
 @handle_error
 async def repo(_, message: Message):
     await message.reply_text(REPO, disable_web_page_preview=True)
-
+"""
 
 @client.on_message(
     filters.command("ping", config.PREFIXES) & ~filters.bot & ~filters.edited
@@ -210,7 +208,7 @@ async def skip_track(_, message: Message, lang):
                 k = await message.reply_text(lang["notActive"])
             await delete_messages([message, k])
 
-
+"""
 @client.on_message(
     filters.command(["m", "mute"], config.PREFIXES) & ~filters.private & ~filters.edited
 )
@@ -226,8 +224,9 @@ async def mute_vc(_, message: Message, lang):
     except (NoActiveGroupCall, GroupCallNotFound):
         k = await message.reply_text(lang["notActive"])
     await delete_messages([message, k])
+"""
 
-
+"""
 @client.on_message(
     filters.command(["um", "unmute"], config.PREFIXES)
     & ~filters.private
@@ -245,6 +244,7 @@ async def unmute_vc(_, message: Message, lang):
     except (NoActiveGroupCall, GroupCallNotFound):
         k = await message.reply_text(lang["notActive"])
     await delete_messages([message, k])
+"""
 
 
 @client.on_message(
