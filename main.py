@@ -120,7 +120,7 @@ async def play_stream(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["radio", "stream"], config.PREFIXES)
+    filters.command("live", config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -286,7 +286,7 @@ async def resume_vc(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["end"], config.PREFIXES)
+    filters.command("end", config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -326,7 +326,7 @@ async def queue_list(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["mix", "shuffle"], config.PREFIXES)
+    filters.command("mix", config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -345,7 +345,7 @@ async def shuffle_list(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["loop"], config.PREFIXES)
+    filters.command("loop", config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -366,7 +366,7 @@ async def loop_stream(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["switch"], config.PREFIXES)
+    filters.command("switch", config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -387,7 +387,7 @@ async def switch_mode(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["private"], config.PREFIXES)
+    filters.command("private", config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
@@ -572,7 +572,7 @@ async def import_playlist(_, message: Message, lang):
 
 
 @client.on_message(
-    filters.command(["reload"], config.PREFIXES)
+    filters.command("reload", config.PREFIXES)
     & ~filters.private
     & ~filters.edited
 )
